@@ -1,5 +1,6 @@
 import Backbone from 'backbone';
 
+
 const postConfig = {
   idAttribute : '_id',
   defaults: {

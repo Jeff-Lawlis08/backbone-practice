@@ -4,6 +4,7 @@ import renderNewPost from './views/newPostForm';
 import Posts from './collections/posts';
 import renderNewPerson from './views/newPersonForm';
 import People from './collections/people';
+import renderPosts from './views/renderPosts';
 
 let posts = new Posts();
 let people = new People();
