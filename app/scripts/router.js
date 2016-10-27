@@ -4,7 +4,8 @@ import renderNewPost from './views/newPostForm';
 import Posts from './collections/posts';
 import renderNewPerson from './views/newPersonForm';
 import People from './collections/people';
-import renderPosts from './views/renderPosts';
+import renderBlogNav from './views/renderBlogNav';
+import renderSinglePost from './views/renderSinglePost';
 
 let posts = new Posts();
 let people = new People();
@@ -13,7 +14,7 @@ const Router = Backbone.Router.extend({
       routes: {
           '': 'renderNewPerson',
           'create': 'renderNewPost',
-          'posts' : 'renderPosts'
+          'posts' : 'renderPost'
       },
       renderNewPost: function() {
         $('.container').empty();
@@ -24,10 +25,12 @@ const Router = Backbone.Router.extend({
         $('.container').append(renderNewPerson(people));
         console.log('home');
       },
-      renderPosts: function () {
+      renderPost: function () {
         $('.container').empty();
-        $('.container').append(renderPosts(posts));
+        $('.container').append(renderBlogNav(posts));
+        $('.container').append(renderSinglePost(posts));
       }
+
 });
 
 const router = new Router();

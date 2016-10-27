@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import Backbone from 'backbone';
 
-function renderPosts(posts) {
+function renderBlogNav(posts) {
   posts.fetch({
     success: function(data) {
       console.log('got stuff!', data);
@@ -9,11 +9,7 @@ function renderPosts(posts) {
         <nav class="blogNav">
         </nav>
         `);
-      const singleBlog = $(`
-        <div class="blogShow">
-        </div>
-        `);
-        $('.container').append(blogNav, singleBlog);
+        $('.container').append(blogNav);
         data.forEach(function(post, i, arr) {
           let li = $(`
             <li class="blogTitles"><a href="${post.get('_id')}">${post.get('title')}</a></li>
@@ -22,11 +18,6 @@ function renderPosts(posts) {
         });
     }
   });
-  const viewPost = $(`
-    <h2 class="soloTitle">${posts.get('title')}</h2>
-    <p class="soloBody">${posts.get('body')}</p>
-    <span class="post-date">${posts.get('timestamp')}</span>
-    `);
-    console.log(viewPost);
 }
-export default renderPosts;
+
+export default renderBlogNav;
